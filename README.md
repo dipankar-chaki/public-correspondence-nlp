@@ -1,21 +1,40 @@
-# NLP Public Correspondence Classification
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+# 🤖 NLP Public Correspondence Classification
 
 This project focuses on classifying public correspondence messages using natural language processing (NLP) techniques. The goal is to accurately categorize messages into different types (e.g., customer inquiries, company responses) using both traditional machine learning models and modern transformer-based approaches.
 
-## Overview
+---
 
-The project processes a large dataset of public correspondence (tweets) and trains various models to classify messages. It includes data preprocessing, feature engineering, and model training using both traditional ML algorithms (Logistic Regression, Random Forest, SVM) and a state-of-the-art BERT model.
+## 🎯 Project Goals
 
-### Key Features
+- **Message Classification**: Develop robust models to accurately classify public correspondence messages into predefined categories (customer inquiries, company responses, etc.)
 
-- Text preprocessing and cleaning
-- Feature engineering (text length, word count, character count)
-- TF-IDF vectorization
-- Multiple model implementations (Traditional ML and BERT)
-- Model performance comparison
-- Model serialization and saving
+- **Model Comparison**: Compare and evaluate the performance of traditional ML models (Logistic Regression, Random Forest, SVM) against modern transformer-based approaches (BERT)
 
-### Dataset
+- **Feature Engineering**: Create and analyze effective text-based features that improve classification accuracy
+
+- **Text Preprocessing**: Implement comprehensive text cleaning and normalization techniques to handle social media text effectively
+
+- **Model Optimization**: Fine-tune models to achieve optimal performance while maintaining computational efficiency
+
+- **Performance Analysis**: Conduct detailed analysis of model performance across different message types and scenarios
+
+- **Scalability**: Ensure the solution can handle large-scale datasets efficiently
+
+- **Reproducibility**: Create a well-documented, modular pipeline that can be easily reproduced and extended
+
+### ✨ Key Features
+
+- 📝 Text preprocessing and cleaning
+- 🔧 Feature engineering (text length, word count, character count)
+- 📊 TF-IDF vectorization
+- 🤖 Multiple model implementations (Traditional ML and BERT)
+- 📈 Model performance comparison
+- 💾 Model serialization and saving
+
+### 📊 Dataset
 
 The dataset consists of public correspondence messages with the following key features:
 
@@ -28,14 +47,14 @@ The dataset consists of public correspondence messages with the following key fe
 - `in_response_to_tweet_id`: ID of the message this is responding to (if any)
 - `message_type`: Classification label (e.g., "customer_complaint_or_inquiry", "company_response")
 
-Dataset Statistics:
+#### 📈 Dataset Statistics:
 
 - Total messages: ~1.25M
 - Class distribution:
   - Customer complaints/inquiries: ~63%
   - Company responses: ~37%
 
-### Project Structure
+### 📁 Project Structure
 
 ```
 nlp-public-correspondence/
@@ -63,15 +82,17 @@ nlp-public-correspondence/
 └── README.md                 # This file
 ```
 
-## Environment Setup
+---
 
-### Prerequisites
+## 🚀 Environment Setup
+
+### ✅ Prerequisites
 
 - Python 3.11 or higher
 - Git
 - Conda (recommended) or pip
 
-### Installation
+### 📦 Installation
 
 1. Clone the repository:
 
@@ -80,7 +101,7 @@ nlp-public-correspondence/
    cd nlp-public-correspondence
    ```
 
-2. Create and activate a virtual environment (using conda):
+2. Create and activate a virtual environment:
 
    ```bash
    # Using conda (recommended)
@@ -105,7 +126,7 @@ nlp-public-correspondence/
    python -m spacy download en_core_web_sm
    ```
 
-### Hardware Requirements
+### 💻 Hardware Requirements
 
 - Minimum: 8GB RAM
 - Recommended: 16GB+ RAM
@@ -113,47 +134,52 @@ nlp-public-correspondence/
   - CUDA-compatible GPU for faster training
   - CPU-only training is supported but slower
 
-## Usage
+---
+
+## 📚 Usage
 
 The project is organized as a series of Jupyter notebooks that walk through the entire pipeline:
 
-1. **Data Exploration** (`01_data_exploration.ipynb`):
+### 📊 1. Data Exploration (`01_data_exploration.ipynb`)
 
-   - Load and explore the dataset
-   - Analyze basic statistics and distributions
-   - Visualize message type distribution
+- Load and explore the dataset
+- Analyze basic statistics and distributions
+- Visualize message type distribution
 
-2. **Data Cleaning and Labeling** (`02_cleaning_and_labels.ipynb`):
+### 🧹 2. Data Cleaning and Labeling (`02_cleaning_and_labels.ipynb`)
 
-   - Clean the dataset
-   - Assign message types based on message properties
-   - Remove irrelevant messages
-   - Handle missing values
+- Clean the dataset
+- Assign message types based on message properties
+- Remove irrelevant messages
+- Handle missing values
 
-3. **Text Preprocessing** (`03_text_preprocessing.ipynb`):
+### 📝 3. Text Preprocessing (`03_text_preprocessing.ipynb`)
 
-   - Remove URLs, mentions, hashtags
-   - Clean and normalize text
-   - Apply spaCy for advanced text processing
-   - Implement custom cleaning functions
+- Remove URLs, mentions, hashtags
+- Clean and normalize text
+- Apply spaCy for advanced text processing
+- Implement custom cleaning functions
 
-4. **Feature Engineering** (`04_feature_engineering.ipynb`):
+### 🔧 4. Feature Engineering (`04_feature_engineering.ipynb`)
 
-   - Extract text-based features
-   - Create additional features like text length, word count
-   - Analyze feature distributions
-   - Generate feature correlation analysis
+- Extract text-based features
+- Create additional features like text length, word count
+- Analyze feature distributions
+- Generate feature correlation analysis
 
-5. **Model Training** (`05_model_training.ipynb`):
-   - Train traditional ML models (Logistic Regression, Random Forest, SVM)
-   - Train and fine-tune BERT model
-   - Evaluate model performance
-   - Save trained models
-   - Generate performance visualizations
+### 🤖 5. Model Training (`05_model_training.ipynb`)
 
-## Model Details
+- Train traditional ML models (Logistic Regression, Random Forest, SVM)
+- Train and fine-tune BERT model
+- Evaluate model performance
+- Save trained models
+- Generate performance visualizations
 
-### Traditional Machine Learning Models
+---
+
+## 🧠 Model Details
+
+### 📊 Traditional Machine Learning Models
 
 1. **Logistic Regression**
 
@@ -172,7 +198,7 @@ The project is organized as a series of Jupyter notebooks that walk through the 
    - Components: 300
    - Loss: 'hinge'
 
-### BERT Model
+### 🤖 BERT Model
 
 - Base model: `bert-base-uncased`
 - Training epochs: 2
@@ -181,7 +207,9 @@ The project is organized as a series of Jupyter notebooks that walk through the 
 - Max sequence length: 128
 - Optimizer: AdamW
 
-## Model Performance
+---
+
+## 📈 Model Performance
 
 The project implements several models with the following performance metrics:
 
@@ -194,7 +222,9 @@ The project implements several models with the following performance metrics:
 
 Note: Training times are approximate and may vary based on hardware.
 
-## Dependencies
+---
+
+## 📦 Dependencies
 
 Key dependencies include:
 
@@ -211,7 +241,9 @@ Key dependencies include:
 - jupyter >= 1.0.0
 - joblib >= 1.3.0
 
-## Contributing
+---
+
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -219,7 +251,7 @@ Key dependencies include:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-### Development Guidelines
+### 📝 Development Guidelines
 
 - Follow PEP 8 style guide for Python code
 - Add docstrings to new functions and classes
@@ -227,18 +259,24 @@ Key dependencies include:
 - Update documentation as needed
 - Use meaningful commit messages
 
-## License
+---
+
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+---
+
+## 🙏 Acknowledgments
 
 - The Twitter Customer Service dataset for providing the training data
 - Hugging Face for the transformers library and BERT implementation
 - The spaCy team for NLP tools and models
 - The scikit-learn team for machine learning implementations
 
-## Author
+---
+
+## 👨‍💻 Author
 
 Dipankar Chaki
 PhD in Computer Science | ML & AI Researcher
