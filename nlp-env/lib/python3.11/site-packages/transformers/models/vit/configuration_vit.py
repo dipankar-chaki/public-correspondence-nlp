@@ -12,7 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""ViT model configuration"""
+""" ViT model configuration"""
 
 from collections import OrderedDict
 from typing import Mapping
@@ -25,6 +25,11 @@ from ...utils import logging
 
 
 logger = logging.get_logger(__name__)
+
+VIT_PRETRAINED_CONFIG_ARCHIVE_MAP = {
+    "google/vit-base-patch16-224": "https://huggingface.co/vit-base-patch16-224/resolve/main/config.json",
+    # See all ViT models at https://huggingface.co/models?filter=vit
+}
 
 
 class ViTConfig(PretrainedConfig):
@@ -68,12 +73,6 @@ class ViTConfig(PretrainedConfig):
             Whether to add a bias to the queries, keys and values.
         encoder_stride (`int`, *optional*, defaults to 16):
            Factor to increase the spatial resolution by in the decoder head for masked image modeling.
-        pooler_output_size (`int`, *optional*):
-           Dimensionality of the pooler layer. If None, defaults to `hidden_size`.
-        pooler_act (`str`, *optional*, defaults to `"tanh"`):
-           The activation function to be used by the pooler. Keys of ACT2FN are supported for Flax and
-           Pytorch, and elements of https://www.tensorflow.org/api_docs/python/tf/keras/activations are
-           supported for Tensorflow.
 
     Example:
 
@@ -108,8 +107,6 @@ class ViTConfig(PretrainedConfig):
         num_channels=3,
         qkv_bias=True,
         encoder_stride=16,
-        pooler_output_size=None,
-        pooler_act="tanh",
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -128,8 +125,6 @@ class ViTConfig(PretrainedConfig):
         self.num_channels = num_channels
         self.qkv_bias = qkv_bias
         self.encoder_stride = encoder_stride
-        self.pooler_output_size = pooler_output_size if pooler_output_size else hidden_size
-        self.pooler_act = pooler_act
 
 
 class ViTOnnxConfig(OnnxConfig):
@@ -146,6 +141,3 @@ class ViTOnnxConfig(OnnxConfig):
     @property
     def atol_for_validation(self) -> float:
         return 1e-4
-
-
-__all__ = ["ViTConfig", "ViTOnnxConfig"]

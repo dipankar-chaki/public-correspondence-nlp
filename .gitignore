@@ -2,3 +2,4 @@
 *.csv
 *.dylib
 nlp-env/
+models/

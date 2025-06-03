@@ -15,7 +15,6 @@
 """
 Processor class for MarkupLM.
 """
-
 from typing import Optional, Union
 
 from ...file_utils import TensorType
@@ -145,6 +144,3 @@ class MarkupLMProcessor(ProcessorMixin):
     def model_input_names(self):
         tokenizer_input_names = self.tokenizer.model_input_names
         return tokenizer_input_names
-
-
-__all__ = ["MarkupLMProcessor"]

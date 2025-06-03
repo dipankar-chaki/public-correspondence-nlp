@@ -252,7 +252,7 @@ class SpeechT5FeatureExtractor(SequenceFeatureExtractor):
                 )
         else:
             logger.warning(
-                f"It is strongly recommended to pass the `sampling_rate` argument to `{self.__class__.__name__}()`. "
+                "It is strongly recommended to pass the ``sampling_rate`` argument to this function. "
                 "Failing to do so can result in silent errors that might be hard to debug."
             )
 
@@ -391,6 +391,3 @@ class SpeechT5FeatureExtractor(SequenceFeatureExtractor):
                 del output[name]
 
         return output
-
-
-__all__ = ["SpeechT5FeatureExtractor"]

@@ -18,7 +18,6 @@ import warnings
 
 from ...image_transforms import rgb_to_id as _rgb_to_id
 from ...utils import logging
-from ...utils.import_utils import requires
 from .image_processing_conditional_detr import ConditionalDetrImageProcessor
 
 
@@ -34,7 +33,6 @@ def rgb_to_id(x):
     return _rgb_to_id(x)
 
 
-@requires(backends=("vision",))
 class ConditionalDetrFeatureExtractor(ConditionalDetrImageProcessor):
     def __init__(self, *args, **kwargs) -> None:
         warnings.warn(
@@ -43,6 +41,3 @@ class ConditionalDetrFeatureExtractor(ConditionalDetrImageProcessor):
             FutureWarning,
         )
         super().__init__(*args, **kwargs)
-
-
-__all__ = ["ConditionalDetrFeatureExtractor"]
