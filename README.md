@@ -278,5 +278,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Dipankar Chaki**  
+**Dipankar Chaki**<br>
 PhD in Computer Science | ML & AI Researcher
